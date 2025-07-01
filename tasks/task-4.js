@@ -21,7 +21,7 @@ const sales = [
 
 // თქვენი კოდი აქ
 function calculateTotalSales(sales) {
-  //
+  return sales.reduce((acc, sale) => acc + sale.amount, 0);
 }
 
 console.log(calculateTotalSales(sales));

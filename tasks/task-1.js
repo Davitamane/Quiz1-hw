@@ -21,6 +21,35 @@
 
 // თქვენი კოდი აქ
 
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  makeSound() {
+    return "Some sound";
+  }
+}
+class Dog extends Animal {
+  constructor(name, age, breed) {
+    super(name, age);
+    this.breed = breed;
+  }
+  makeSound() {
+    return "WOOF!";
+  }
+}
+
+class Cat extends Animal {
+  constructor(name, age, color) {
+    super(name, age);
+    this.color = color;
+  }
+  makeSound() {
+    return "MEOW!";
+  }
+}
+
 // ტესტის შემთხვევები
 const dog = new Dog("Rex", 3, "German Shepherd");
 const cat = new Cat("Whiskers", 2, "Gray");

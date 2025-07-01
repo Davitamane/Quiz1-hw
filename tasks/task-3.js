@@ -15,7 +15,7 @@
 
 const students = [
   { name: "Alice", age: 20, grade: 85, attendance: 90 },
-  { name: "Bob", age: 19, grade: 92, attendance: 85 },
+  { name: "Bob", age: 19, grade: 91, attendance: 85 },
   { name: "Charlie", age: 20, grade: 85, attendance: 95 },
   { name: "David", age: 18, grade: 88, attendance: 88 },
   { name: "Eve", age: 19, grade: 92, attendance: 92 },
@@ -24,11 +24,14 @@ const students = [
 // თქვენი კოდი აქ
 
 function sortByGrade(students) {
-  //
+  return students.sort((a, b) => b.grade - a.grade);
 }
 
 function sortByAgeAndGrade(students) {
-  //
+  return students.sort((a, b) => {
+    if (a.age !== b.age) return a.age - b.age;
+    return b.grade - a.grade;
+  });
 }
 
 console.log(sortByGrade(students));

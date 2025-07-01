@@ -31,15 +31,30 @@ const products = [
 // თქვენი კოდი აქ
 
 function filterExpensiveProducts(products, priceThreshold) {
-  //
+  return products
+    .filter((product) => product.price > priceThreshold)
+    .map((product) => product.name);
 }
-
 function applyDiscount(products, discountPercentage) {
-  //
+  return products.map((product) => {
+    const discountedPrice = (product.price * (100 - discountPercentage)) / 100;
+    return {
+      name: product.name,
+      price: discountedPrice,
+      stock: product.stock,
+    };
+  });
 }
 
 function getAvailableProducts(products) {
-  //
+  return products
+    .filter((product) => product.stock > 0)
+    .map((product) => {
+      return {
+        name: product.name,
+        price: product.price,
+      };
+    });
 }
 
 console.log(filterExpensiveProducts(products, 600));
