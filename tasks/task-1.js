@@ -21,34 +21,26 @@
 
 // თქვენი კოდი აქ
 
-class Animal {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  }
-  makeSound() {
-    return "Some sound";
-  }
+function Animal(name, age) {
+  this.name = name;
+  this.age = age;
 }
-class Dog extends Animal {
-  constructor(name, age, breed) {
-    super(name, age);
-    this.breed = breed;
-  }
-  makeSound() {
-    return "WOOF!";
-  }
+Animal.prototype.makeSound = function () {
+  return "Some sound";
+};
+function Dog(name, age, breed) {
+  Animal.call(this, name, age);
+  this.breed = breed;
 }
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
 
-class Cat extends Animal {
-  constructor(name, age, color) {
-    super(name, age);
-    this.color = color;
-  }
-  makeSound() {
-    return "MEOW!";
-  }
+function Cat(name, age, color) {
+  Animal.call(this, name, age);
+  this.color = color;
 }
+Cat.prototype = Object.create(Animal.prototype)
+Cat.prototype.constructor = Cat;
 
 // ტესტის შემთხვევები
 const dog = new Dog("Rex", 3, "German Shepherd");
